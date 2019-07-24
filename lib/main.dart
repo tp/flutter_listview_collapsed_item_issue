@@ -21,111 +21,89 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  bool expandFirst = false;
+  bool isFirstExpanded = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: WillPopScope(
-        onWillPop: () async {
-          return false;
-        },
-        child: Column(
-          children: <Widget>[
-            Expanded(
-              child: ListView(
-                children: <Widget>[
-                  ExpandableWidget(
-                    isExpanded: expandFirst,
-                  ),
-                  GestureDetector(
-                    child: Container(
-                      alignment: Alignment.bottomCenter,
-                      height: 100,
-                      color: expandFirst ? Colors.green : Colors.red,
-                      child: Text('expandFirst = $expandFirst'),
-                    ),
-                    onTap: () {
-                      setState(() {
-                        expandFirst = !expandFirst;
-                      });
-                    },
-                  ),
-                  Container(
-                    height: 100,
-                    color: Colors.yellow,
-                  ),
-                  Container(
-                    height: 100,
-                    color: Colors.pink,
-                  ),
-                  Container(
-                    height: 100,
-                    color: Colors.yellow,
-                  ),
-                  Container(
-                    height: 100,
-                    color: Colors.pink,
-                  ),
-                  Container(
-                    height: 100,
-                    color: Colors.yellow,
-                  ),
-                  Container(
-                    height: 100,
-                    color: Colors.pink,
-                  ),
-                  Container(
-                    height: 100,
-                    color: Colors.yellow,
-                  ),
-                  Container(
-                    height: 100,
-                    color: Colors.pink,
-                  ),
-                  Container(
-                    height: 100,
-                    color: Colors.yellow,
-                  ),
-                  Container(
-                    height: 100,
-                    color: Colors.pink,
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class ExpandableWidget extends StatelessWidget {
-  const ExpandableWidget({Key key, this.isExpanded}) : super(key: key);
-
-  final bool isExpanded;
-
-  @override
-  Widget build(BuildContext context) {
-    if (isExpanded) {
-      return Column(
+      body: ListView(
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 15,
-              vertical: 25,
-            ),
+          Container(
+            height: isFirstExpanded ? 100 : 0,
+            color: Colors.brown,
+          ),
+          Container(
+            height: 100,
+            color: Colors.yellow,
+          ),
+          Container(
+            height: 100,
+            color: Colors.pink,
+          ),
+          Container(
+            height: 100,
+            color: Colors.yellow,
+          ),
+          Container(
+            height: 100,
+            color: Colors.pink,
+          ),
+          GestureDetector(
             child: Container(
+              alignment: Alignment.bottomCenter,
               height: 100,
-              color: Colors.blue,
+              color: isFirstExpanded ? Colors.green : Colors.red,
+              child: Text('isFirstExpanded = $isFirstExpanded'),
             ),
+            onTap: () {
+              setState(() {
+                isFirstExpanded = !isFirstExpanded;
+              });
+            },
+          ),
+          Container(
+            height: 100,
+            color: Colors.yellow,
+          ),
+          Container(
+            height: 100,
+            color: Colors.pink,
+          ),
+          Container(
+            height: 100,
+            color: Colors.yellow,
+          ),
+          Container(
+            height: 100,
+            color: Colors.pink,
+          ),
+          Container(
+            height: 100,
+            color: Colors.yellow,
+          ),
+          Container(
+            height: 100,
+            color: Colors.pink,
+          ),
+          Container(
+            height: 100,
+            color: Colors.yellow,
+          ),
+          Container(
+            height: 100,
+            color: Colors.pink,
+          ),
+          Container(
+            height: 100,
+            color: Colors.yellow,
+          ),
+          Container(
+            height: 100,
+            color: Colors.pink,
           ),
         ],
-      );
-    }
-
-    return Container();
+      ),
+    );
   }
 }
